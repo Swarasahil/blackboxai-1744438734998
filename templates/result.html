@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <!-- Result Header -->
+    <div class="text-center mb-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-blue-600 mb-4">Analysis Results</h1>
+        <p class="text-xl text-gray-600">Detailed security analysis for the provided URL</p>
+    </div>
+
+    <!-- URL Card -->
+    <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+        <h2 class="text-lg font-semibold text-gray-700 mb-2">Analyzed URL:</h2>
+        <p class="text-gray-600 break-all bg-gray-50 p-3 rounded">{{ url }}</p>
+    </div>
+
+    <!-- Result Card -->
+    <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
+        <div class="p-6 {% if result == 'Phishing' %}bg-red-50{% else %}bg-green-50{% endif %}">
+            <div class="flex items-center justify-between">
+                <h2 class="text-2xl font-bold {% if result == 'Phishing' %}text-red-600{% else %}text-green-600{% endif %}">
+                    {% if result == 'Phishing' %}
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        Potential Phishing Website Detected
+                    {% else %}
+                        <i class="fas fa-check-circle mr-2"></i>
+                        Website Appears Legitimate
+                    {% endif %}
+                </h2>
+                <span class="text-lg font-semibold {% if result == 'Phishing' %}text-red-600{% else %}text-green-600{% endif %}">
+                    {{ result }}
+                </span>
+            </div>
+        </div>
+
+        <!-- Detailed Analysis -->
+        <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">Detailed Analysis</h3>
+            
+            <!-- Feature Analysis -->
+            <div class="space-y-4">
+                {% if features.url_length > 75 %}
+                <div class="flex items-start">
+                    <i class="fas fa-exclamation-circle text-red-500 mt-1 mr-2"></i>
+                    <div>
+                        <p class="font-semibold">Long URL Detected</p>
+                        <p class="text-gray-600">URL length ({{ features.url_length }} characters) is unusually long</p>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if features.has_ip %}
+                <div class="flex items-start">
+                    <i class="fas fa-exclamation-circle text-red-500 mt-1 mr-2"></i>
+                    <div>
+                        <p class="font-semibold">IP Address Used</p>
+                        <p class="text-gray-600">Website uses IP address instead of domain name</p>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if features.has_at_symbol %}
+                <div class="flex items-start">
+                    <i class="fas fa-exclamation-circle text-red-500 mt-1 mr-2"></i>
+                    <div>
+                        <p class="font-semibold">@ Symbol Found</p>
+                        <p class="text-gray-600">URL contains @ symbol which can be used for deception</p>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if features.double_slash_redirect %}
+                <div class="flex items-start">
+                    <i class="fas fa-exclamation-circle text-red-500 mt-1 mr-2"></i>
+                    <div>
+                        <p class="font-semibold">Redirect Detection</p>
+                        <p class="text-gray-600">URL contains double slash redirect</p>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if features.prefix_suffix %}
+                <div class="flex items-start">
+                    <i class="fas fa-exclamation-circle text-red-500 mt-1 mr-2"></i>
+                    <div>
+                        <p class="font-semibold">Prefix/Suffix in Domain</p>
+                        <p class="text-gray-600">Domain contains prefix or suffix using (-)</p>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if features.subdomain_count > 3 %}
+                <div class="flex items-start">
+                    <i class="fas fa-exclamation-circle text-red-500 mt-1 mr-2"></i>
+                    <div>
+                        <p class="font-semibold">Multiple Subdomains</p>
+                        <p class="text-gray-600">URL contains {{ features.subdomain_count }} subdomains</p>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if not features.https_protocol %}
+                <div class="flex items-start">
+                    <i class="fas fa-exclamation-circle text-red-500 mt-1 mr-2"></i>
+                    <div>
+                        <p class="font-semibold">No HTTPS</p>
+                        <p class="text-gray-600">Website doesn't use secure HTTPS protocol</p>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex justify-center space-x-4">
+        <a href="/detect" 
+           class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300 flex items-center">
+            <i class="fas fa-search mr-2"></i>
+            Check Another URL
+        </a>
+        <a href="/" 
+           class="bg-gray-600 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition duration-300 flex items-center">
+            <i class="fas fa-home mr-2"></i>
+            Back to Home
+        </a>
+    </div>
+</div>
+{% endblock %}
