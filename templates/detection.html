@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <!-- Header Section -->
+    <div class="text-center mb-12">
+        <h1 class="text-3xl md:text-4xl font-bold text-blue-600 mb-4">
+            <i class="fas fa-search mr-2"></i>
+            Website Security Check
+        </h1>
+        <p class="text-xl text-gray-600">
+            Enter a URL below to check if it's a potential phishing website
+        </p>
+    </div>
+
+    <!-- URL Input Form -->
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+        <form action="/detect" method="POST" class="space-y-6">
+            <div>
+                <label for="url" class="block text-gray-700 text-sm font-semibold mb-2">
+                    Website URL
+                </label>
+                <div class="flex">
+                    <div class="flex-grow">
+                        <input type="url" 
+                               id="url" 
+                               name="url" 
+                               required
+                               placeholder="https://example.com"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        >
+                    </div>
+                    <button type="submit" 
+                            class="bg-blue-600 text-white px-6 py-2 rounded-r-lg hover:bg-blue-700 transition duration-300 flex items-center">
+                        <i class="fas fa-shield-alt mr-2"></i>
+                        Check
+                    </button>
+                </div>
+                {% if error %}
+                <p class="mt-2 text-red-600 text-sm">
+                    <i class="fas fa-exclamation-circle mr-1"></i>
+                    {{ error }}
+                </p>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+
+    <!-- Tips Section -->
+    <div class="grid md:grid-cols-2 gap-8">
+        <!-- Common Phishing Signs -->
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-xl font-semibold text-blue-600 mb-4">
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                Common Phishing Signs
+            </h2>
+            <ul class="space-y-3 text-gray-600">
+                <li class="flex items-start">
+                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                    <span>Misspelled domain names or URLs</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                    <span>URLs containing unusual characters or numbers</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                    <span>Requests for personal or financial information</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                    <span>Poor grammar or spelling in communications</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Safety Tips -->
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-xl font-semibold text-blue-600 mb-4">
+                <i class="fas fa-lightbulb mr-2"></i>
+                Safety Tips
+            </h2>
+            <ul class="space-y-3 text-gray-600">
+                <li class="flex items-start">
+                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                    <span>Always verify the website's SSL certificate</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                    <span>Don't click on unexpected links in emails</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                    <span>Keep your software and browsers updated</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                    <span>Use strong, unique passwords for each account</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
