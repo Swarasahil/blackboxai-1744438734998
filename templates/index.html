@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto">
+    <!-- Hero Section -->
+    <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-6xl font-bold text-blue-600 mb-6">
+            Protect Yourself from Phishing Attacks
+        </h1>
+        <p class="text-xl text-gray-600 mb-8">
+            Our advanced detection system helps you identify potentially dangerous websites
+        </p>
+        <a href="/detect" 
+           class="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition duration-300 inline-flex items-center">
+            <i class="fas fa-search mr-2"></i>
+            Check Website Now
+        </a>
+    </div>
+
+    <!-- Feature Cards -->
+    <div class="grid md:grid-cols-3 gap-8 mb-16">
+        <!-- Card 1 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+            <div class="text-blue-600 text-4xl mb-4">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Real-time Detection</h3>
+            <p class="text-gray-600">
+                Instantly analyze URLs for potential phishing threats using our advanced detection system.
+            </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+            <div class="text-blue-600 text-4xl mb-4">
+                <i class="fas fa-robot"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">AI-Powered Analysis</h3>
+            <p class="text-gray-600">
+                Leverage machine learning algorithms to identify sophisticated phishing attempts.
+            </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+            <div class="text-blue-600 text-4xl mb-4">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Detailed Reports</h3>
+            <p class="text-gray-600">
+                Get comprehensive analysis reports with specific security indicators and recommendations.
+            </p>
+        </div>
+    </div>
+
+    <!-- How It Works Section -->
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-16">
+        <h2 class="text-3xl font-bold text-center mb-8">How It Works</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center">
+                <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                    <span class="text-blue-600 text-2xl">1</span>
+                </div>
+                <h3 class="font-semibold mb-2">Enter URL</h3>
+                <p class="text-gray-600">Paste the suspicious website URL into our checker</p>
+            </div>
+            <div class="text-center">
+                <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                    <span class="text-blue-600 text-2xl">2</span>
+                </div>
+                <h3 class="font-semibold mb-2">Analysis</h3>
+                <p class="text-gray-600">Our system analyzes multiple security factors</p>
+            </div>
+            <div class="text-center">
+                <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                    <span class="text-blue-600 text-2xl">3</span>
+                </div>
+                <h3 class="font-semibold mb-2">Get Results</h3>
+                <p class="text-gray-600">Receive detailed analysis and safety recommendations</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-blue-600 text-white rounded-lg shadow-lg p-8 text-center">
+        <h2 class="text-3xl font-bold mb-4">Start Protecting Yourself Today</h2>
+        <p class="text-xl mb-6">Don't fall victim to phishing attacks. Check suspicious URLs now.</p>
+        <a href="/detect" 
+           class="bg-white text-blue-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition duration-300 inline-flex items-center">
+            <i class="fas fa-lock mr-2"></i>
+            Get Started
+        </a>
+    </div>
+</div>
+{% endblock %}
