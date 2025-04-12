@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <!-- About Header -->
+    <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-blue-600 mb-4">About PhishGuard</h1>
+        <p class="text-xl text-gray-600">
+            Understanding our approach to phishing detection
+        </p>
+    </div>
+
+    <!-- Project Overview -->
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">
+            <i class="fas fa-info-circle text-blue-600 mr-2"></i>
+            Project Overview
+        </h2>
+        <p class="text-gray-600 mb-4">
+            PhishGuard is a final year diploma project designed to help users identify potential phishing websites. 
+            Using advanced analysis techniques, our system examines various aspects of a URL to determine if it exhibits 
+            characteristics commonly associated with phishing attempts.
+        </p>
+        <p class="text-gray-600">
+            This tool is especially relevant in today's digital landscape where phishing attacks are becoming increasingly 
+            sophisticated and prevalent. Our goal is to provide a user-friendly interface for quick security assessments 
+            of suspicious URLs.
+        </p>
+    </div>
+
+    <!-- Methodology -->
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">
+            <i class="fas fa-microscope text-blue-600 mr-2"></i>
+            Our Methodology
+        </h2>
+        <div class="space-y-6">
+            <div>
+                <h3 class="text-xl font-semibold text-gray-700 mb-2">URL Analysis Features</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-4 rounded">
+                        <h4 class="font-semibold text-blue-600 mb-2">URL Length</h4>
+                        <p class="text-gray-600">Analyzing URL length as phishing URLs tend to be unusually long</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded">
+                        <h4 class="font-semibold text-blue-600 mb-2">IP Address Usage</h4>
+                        <p class="text-gray-600">Detecting use of IP addresses instead of domain names</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded">
+                        <h4 class="font-semibold text-blue-600 mb-2">Special Characters</h4>
+                        <p class="text-gray-600">Checking for suspicious special characters in URLs</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded">
+                        <h4 class="font-semibold text-blue-600 mb-2">Domain Analysis</h4>
+                        <p class="text-gray-600">Examining domain name characteristics and patterns</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold text-gray-700 mb-2">Detection Algorithm</h3>
+                <p class="text-gray-600 mb-4">
+                    Our detection system uses a rule-based approach combined with pattern recognition to identify potential 
+                    phishing websites. Each URL is analyzed across multiple parameters, with each suspicious characteristic 
+                    contributing to an overall risk score.
+                </p>
+                <div class="bg-blue-50 border-l-4 border-blue-600 p-4">
+                    <h4 class="font-semibold text-blue-600 mb-2">Key Indicators We Check:</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li>Presence of IP addresses in URLs</li>
+                        <li>Abnormal URL length</li>
+                        <li>Use of special characters</li>
+                        <li>Multiple subdomains</li>
+                        <li>Suspicious redirects</li>
+                        <li>SSL/HTTPS usage</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technical Details -->
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">
+            <i class="fas fa-code text-blue-600 mr-2"></i>
+            Technical Implementation
+        </h2>
+        <div class="space-y-4">
+            <div>
+                <h3 class="text-xl font-semibold text-gray-700 mb-2">Technologies Used</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="text-center p-4 bg-gray-50 rounded">
+                        <i class="fab fa-python text-4xl text-blue-600 mb-2"></i>
+                        <p class="font-semibold">Python</p>
+                    </div>
+                    <div class="text-center p-4 bg-gray-50 rounded">
+                        <i class="fas fa-server text-4xl text-blue-600 mb-2"></i>
+                        <p class="font-semibold">Flask</p>
+                    </div>
+                    <div class="text-center p-4 bg-gray-50 rounded">
+                        <i class="fas fa-paint-brush text-4xl text-blue-600 mb-2"></i>
+                        <p class="font-semibold">Tailwind CSS</p>
+                    </div>
+                    <div class="text-center p-4 bg-gray-50 rounded">
+                        <i class="fas fa-shield-alt text-4xl text-blue-600 mb-2"></i>
+                        <p class="font-semibold">Security APIs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Future Improvements -->
+    <div class="bg-white rounded-lg shadow-lg p-8">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">
+            <i class="fas fa-rocket text-blue-600 mr-2"></i>
+            Future Improvements
+        </h2>
+        <ul class="space-y-3 text-gray-600">
+            <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                <span>Integration with machine learning models for improved accuracy</span>
+            </li>
+            <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                <span>Real-time website content analysis</span>
+            </li>
+            <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                <span>Browser extension development</span>
+            </li>
+            <li class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                <span>API service for third-party integration</span>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
